@@ -1,0 +1,22 @@
+input {
+  margin: 10px;
+}
+
+button {
+  margin-top: 5px;
+}
+
+.registration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 30px;
+}
