@@ -7,7 +7,7 @@ const Register = () => {
   const [passwordReg, setPasswordReg] = useState("");
 
   const register = () => {
-    Axios.post("http://localhost:3001/register", {
+    Axios.post("http://localhost:3005/register", {
       username: usernameReg,
       password: passwordReg,
     }).then((response)=> {
@@ -18,16 +18,16 @@ const Register = () => {
   return (
     <div className="registration">
       <h1>Registration</h1>
-      <label>Username</label>
       <input
         type="text"
+        placeholder="Set username"
         onChange={(e) => {
           setUsernameReg(e.target.value);
         }}
       />
-      <label>Password</label>
       <input
         type="text"
+        placeholder="Set password"
         onChange={(e) => {
           setPasswordReg(e.target.value);
         }}
