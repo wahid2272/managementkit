@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Axios from "axios";
 import '../../App.css';
 
@@ -7,6 +7,8 @@ const Login = () => {
     const [passwordLog, setPasswordLog] = useState('');
 
     const [loginStatus, setLoginStatus] = useState('');
+
+    Axios.defaults.withCredentials = true;
 
     const login = () => {
         Axios.post("http://localhost:3005/login", {
@@ -21,6 +23,15 @@ const Login = () => {
             }
         })
       };
+
+      useEffect(()=> {
+        Axios.get("http://localhost:3005/login")
+            .then((response)=> {
+                if (response.data.loggedIn === true) {
+                    setLoginStatus(response.data.user[0].username);
+                  }
+            })
+      }, []);
 
     return (
         <div className="login">
