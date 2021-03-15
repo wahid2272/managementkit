@@ -20,7 +20,7 @@ export default function Main() {
   return (
     <div>
       {role === "student" && <Student />}
-      {role === "" && <Student />}
+      {/* {role === "" && <Student />} */}
       {role === "admin" && <Admin />}
     </div>
   );

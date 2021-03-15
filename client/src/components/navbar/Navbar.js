@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  button: {
+    textTransform: 'none',
+    fontSize: 'larger'
+  }
 }));
 
 export default function NavBar() {
@@ -26,7 +30,9 @@ export default function NavBar() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Student Portal
+            <Button color="inherit" component={Link} to={"/"} className={classes.button}>
+              Student Portal
+          </Button>
           </Typography>
           <Button color="inherit" component={Link} to={"/login"}>
             Login

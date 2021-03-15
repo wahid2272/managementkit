@@ -1,12 +1,13 @@
 import React from "react";
+import logoblack from '../../assets/images/logoblack.png';
+import '../../assets/css/styles.css';
 
 const Home = () => {
  
 
   return (
     <div>
-      {/* <h1>{loginStatus}</h1> */}
-      <h1>Hello</h1>
+      <img className="hero-banner"  src={logoblack} alt="logo"/>
     </div>
   );
 };

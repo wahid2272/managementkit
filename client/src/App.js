@@ -17,9 +17,10 @@ function App() {
           <div className="appBody">
             <Navbar />
             <Switch>
+              <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
-              <Route path="/" exact render={() => <Main/>} />
+              <Route path="/dashboard" exact render={() => <Main/>} />
             </Switch>
           </div>
         </>
