@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/footer/Footer";
 import Home from "./components/home/Home";
 import Login from "./components/login/Login";
-import Navbar from "./components/navbar/Navbar";
+// import Navbar from "./components/navbar/Navbar";
 import Register from "./components/register/Register";
 import Main from "./token/Main";
 
@@ -15,7 +15,7 @@ function App() {
         <>
           <CssBaseline />
           <div className="appBody">
-            <Navbar />
+            {/* <Navbar /> */}
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />

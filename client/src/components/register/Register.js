@@ -1,5 +1,6 @@
-import Axios from "axios";
 import React, { useState } from "react";
+import Navbar from "../navbar/Navbar";
+import Axios from "axios";
 import "../../App.css";
 
 const Register = () => {
@@ -16,6 +17,8 @@ const Register = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="registration">
       <h1>Registration</h1>
       <input
@@ -34,6 +37,7 @@ const Register = () => {
       />
       <button onClick={register}>Register</button>
     </div>
+    </>
   );
 };
 

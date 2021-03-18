@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "../navbar/Navbar";
 import { useHistory } from "react-router-dom";
 import Axios from "axios";
 import "../../App.css";
@@ -21,9 +22,11 @@ const Login = () => {
         history.push('/dashboard');
       }   
     });
-  };
+  }; 
 
   return (
+    <>
+    <Navbar/>
     <div className="login">
       <h1>Login</h1>
       <input
@@ -42,6 +45,7 @@ const Login = () => {
       />
       <button onClick={login}>Login</button>
     </div>
+    </>
   );
 };
 
