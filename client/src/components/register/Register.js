@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../navbar/Navbar";
+import { useHistory } from "react-router-dom";
 import Axios from "axios";
 import "../../App.css";
 
@@ -7,13 +8,14 @@ const Register = () => {
   const [usernameReg, setUsernameReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
 
-  const register = () => {
+  const history = useHistory();
+
+  const registerUser = () => {
     Axios.post("http://localhost:3005/register", {
       username: usernameReg,
       password: passwordReg,
-    }).then((response)=> {
-        console.log(response);
-    })
+    });
+    history.push('/login');
   };
 
   return (
@@ -35,7 +37,7 @@ const Register = () => {
           setPasswordReg(e.target.value);
         }}
       />
-      <button onClick={register}>Register</button>
+      <button onClick={registerUser}>Register</button>
     </div>
     </>
   );

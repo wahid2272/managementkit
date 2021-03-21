@@ -7,6 +7,7 @@ import Login from "./components/login/Login";
 // import Navbar from "./components/navbar/Navbar";
 import Register from "./components/register/Register";
 import Main from "./token/Main";
+import AdminUserManager from './components/users/userManager/AdminUserManager';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
               <Route path="/dashboard" exact render={() => <Main/>} />
+              <Route path="/userManage" exact render={() => <AdminUserManager/>} />
             </Switch>
           </div>
         </>

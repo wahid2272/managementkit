@@ -1,5 +1,6 @@
 import React from 'react';
 import UserNav from './UserNav';
+import { useHistory } from 'react-router-dom';
 // Material UI
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -7,6 +8,7 @@ import { Card } from '@material-ui/core';
 import { CardActions } from '@material-ui/core';
 import { CardContent } from '@material-ui/core';
 import { Button } from '@material-ui/core';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,9 +33,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 const Admin = () => {
   const [spacing] = React.useState(2);
+  const history = useHistory();
   const classes = useStyles();
+  
+  const ManageUser = () => {
+  
+  let path = `/userManage`;
+  history.push(path);
+}
 
   return (
     <div>
@@ -49,7 +60,7 @@ const Admin = () => {
                 <h1>User Management</h1>
               </CardContent>
               <CardActions>
-                <Button color="primary">Click to manage</Button>
+                <Button color="primary" onClick={ManageUser}>Click to manage</Button>
               </CardActions>
             </Card>
 
