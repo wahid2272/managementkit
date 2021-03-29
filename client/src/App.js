@@ -7,7 +7,7 @@ import Login from "./components/login/Login";
 // import Navbar from "./components/navbar/Navbar";
 import Register from "./components/register/Register";
 import Main from "./token/Main";
-import AdminUserManager from './components/users/userManager/AdminUserManager';
+import AdminUserManager from './components/users/userDashboard/AdminUserManager';
 
 function App() {
   return (

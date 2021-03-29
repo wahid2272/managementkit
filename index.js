@@ -1,9 +1,8 @@
 const express = require("express");
-const mysql = require("mysql");
 const cors = require("cors");
-const dotenv = require("dotenv");
 
-dotenv.config({ path: "./.env" });
+//Import BD configuration
+const db = require('./dbConfig');
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
@@ -36,21 +35,6 @@ app.use(
     },
   })
 );
-
-const db = mysql.createConnection({
-  user: process.env.DATABASE_USER,
-  host: process.env.DATABASE_HOST,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE,
-});
-
-db.connect((error) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("MySQL Connected...");
-  }
-});
 
 app.post("/register", (req, res) => {
   const username = req.body.username;
