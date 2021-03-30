@@ -15,7 +15,7 @@ const Register = () => {
       username: usernameReg,
       password: passwordReg,
     });
-    history.push('/login');
+    history.push('/dashboard');
   };
 
   return (

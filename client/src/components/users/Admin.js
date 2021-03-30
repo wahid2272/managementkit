@@ -41,9 +41,12 @@ const Admin = () => {
   const classes = useStyles();
   
   const ManageUser = () => {
-  
   let path = `/userManage`;
   history.push(path);
+}
+
+const RegisterNewUser = () => {
+  history.push('/register')
 }
 
   return (
@@ -61,6 +64,15 @@ const Admin = () => {
               </CardContent>
               <CardActions>
                 <Button color="primary" onClick={ManageUser}>Click to manage</Button>
+              </CardActions>
+            </Card>
+
+            <Card className={classes.card}>
+              <CardContent>
+                <h1>Register New User</h1>
+              </CardContent>
+              <CardActions>
+                <Button color="primary" onClick={RegisterNewUser}>Click to register</Button>
               </CardActions>
             </Card>
 
