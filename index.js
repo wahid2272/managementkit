@@ -34,7 +34,7 @@ app.use(
       expires: 60 * 60 * 24,
     },
   })
-);
+  );
 
 app.post("/register", (req, res) => {
   const username = req.body.username;
@@ -82,6 +82,55 @@ app.post("/login", (req, res) => {
             // console.log(req.session.user);
             res.send(result);
           } else {
+            res.status(401).send("Unauthorised")
+          }
+        });
+      } else {
+        res.status(401).send("User not exist")
+      }
+    }
+  );
+});
+
+app.post("/reset-password", (req, res) => {
+  const username = req.body.username;
+  const oldPassword = req.body.oldPassword;
+  const newPassword = req.body.newPassword;
+  const confirmNewPassword = req.body.confirmNewPassword;
+
+  //console.log(username, oldPassword, newPassword, confirmNewPassword);
+
+  db.query(
+    "SELECT * FROM users WHERE username = ?;",
+    username,
+    (err, result) => {
+      if (err) {
+        res.send({ err: err });
+      }
+
+      // console.log(result)
+
+      if (result.length > 0) {
+        bcrypt.compare(oldPassword, result[0].password, (error, response) => {
+          if (response) {
+            
+            bcrypt.hash(newPassword, saltRounds, (err, hash) => {
+              if (err) {
+                console.log(err);
+              }
+          
+              db.query(
+                "UPDATE users SET password = ? where username = ?",
+                [hash, username],
+                (err ) => {
+                  console.log(err);
+                }
+              );
+            });
+
+            // res.send(result);
+            console.log(result);
+          } else {
             res.send({ message: "Wrong username/password combination!" });
           }
         });
@@ -90,7 +139,7 @@ app.post("/login", (req, res) => {
       }
     }
   );
-});
+})
 
 app.listen(3005, () => {
   console.log("Server running at port 3005");

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../navbar/Navbar";
+import UserNav from "../users/UserNav";
 import { useHistory } from "react-router-dom";
 import Axios from "axios";
 import "../../App.css";
@@ -20,7 +20,7 @@ const Register = () => {
 
   return (
     <>
-    <Navbar />
+    <UserNav />
     <div className="registration">
       <h1>Registration</h1>
       <input

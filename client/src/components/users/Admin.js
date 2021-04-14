@@ -49,6 +49,10 @@ const RegisterNewUser = () => {
   history.push('/register')
 }
 
+const ResetPassword = () => {
+  history.push('/reset')
+}
+
   return (
     <div>
       <UserNav/>
@@ -81,7 +85,7 @@ const RegisterNewUser = () => {
                 <h1>Password Reset</h1>
               </CardContent>
               <CardActions>
-                <Button color="primary">Change your password</Button>
+                <Button color="primary" onClick={ResetPassword}>Change your password</Button>
               </CardActions>
             </Card>
       

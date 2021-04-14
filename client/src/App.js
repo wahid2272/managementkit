@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/footer/Footer";
 import Home from "./components/home/Home";
 import Login from "./components/login/Login";
+import Reset from "./components/resetPassword/Reset";
 // import Navbar from "./components/navbar/Navbar";
 import Register from "./components/register/Register";
 import Main from "./token/Main";
@@ -23,6 +24,7 @@ function App() {
               <Route exact path="/register" component={Register} />
               <Route path="/dashboard" exact render={() => <Main/>} />
               <Route path="/userManage" exact render={() => <AdminUserManager/>} />
+              <Route exact path="/reset" render={() => <Reset/>} />
             </Switch>
           </div>
         </>
