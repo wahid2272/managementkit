@@ -2,9 +2,28 @@ import React, { useState } from "react";
 import Navbar from "../navbar/Navbar";
 import { useHistory } from "react-router-dom";
 import Axios from "axios";
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import "../../App.css";
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+      width: '35ch',
+    },
+  },
+  button: {
+    width: "10em",
+    padding: "22px",
+    margin: theme.spacing(2)
+  }
+}));
+
 const Login = () => {
+  const classes = useStyles();
+
   const [usernameLog, setUsernameLog] = useState("");
   const [passwordLog, setPasswordLog] = useState("");
   const [message, setMessage] = useState("");
@@ -32,21 +51,22 @@ const Login = () => {
     <Navbar/>
     <div className="login">
       <h1>Login</h1>
-      <input
-        type="text"
-        placeholder="Username..."
+      <form className={classes.root} noValidate autoComplete="off">
+        <TextField id="outlined-basic" label="Username" variant="outlined" 
         onChange={(e) => {
           setUsernameLog(e.target.value);
-        }}
-      />
-      <input
-        type="password"
-        placeholder="Password..."
-        onChange={(e) => {
-          setPasswordLog(e.target.value);
-        }}
-      />
-      <button onClick={login}>Login</button>
+        }}/>
+      </form>
+
+      <form className={classes.root} noValidate autoComplete="off">
+      <TextField id="outlined-basic" label="Password" variant="outlined" 
+      onChange={(e) => {
+        setPasswordLog(e.target.value);
+      }}/>
+    </form>
+
+     <Button className={classes.button} variant="contained" color="primary" onClick={login}>Login</Button>
+
       {message && <h3>{message}</h3>}
     </div>
     </>
