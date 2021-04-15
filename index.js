@@ -79,7 +79,6 @@ app.post("/login", (req, res) => {
         bcrypt.compare(password, result[0].password, (error, response) => {
           if (response) {
             req.session.user = result;
-            // console.log(req.session.user);
             res.send(result);
           } else {
             res.status(401).send("Unauthorised")
@@ -98,8 +97,6 @@ app.post("/reset-password", (req, res) => {
   const newPassword = req.body.newPassword;
   const confirmNewPassword = req.body.confirmNewPassword;
 
-  //console.log(username, oldPassword, newPassword, confirmNewPassword);
-
   db.query(
     "SELECT * FROM users WHERE username = ?;",
     username,
@@ -108,8 +105,7 @@ app.post("/reset-password", (req, res) => {
         res.send({ err: err });
       }
 
-      // console.log(result)
-
+      // compare old and new password
       if (result.length > 0) {
         bcrypt.compare(oldPassword, result[0].password, (error, response) => {
           if (response) {
