@@ -9,6 +9,8 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 
 const bcrypt = require("bcrypt");
+const DbService = require("./dbService");
+const { response } = require("express");
 const saltRounds = 10;
 
 const app = express();
@@ -95,7 +97,6 @@ app.post("/reset-password", (req, res) => {
   const username = req.body.username;
   const oldPassword = req.body.oldPassword;
   const newPassword = req.body.newPassword;
-  const confirmNewPassword = req.body.confirmNewPassword;
 
   db.query(
     "SELECT * FROM users WHERE username = ?;",
@@ -125,7 +126,7 @@ app.post("/reset-password", (req, res) => {
             });
 
             // res.send(result);
-            console.log(result);
+            //console.log(result);
           } else {
             res.send({ message: "Wrong username/password combination!" });
           }
@@ -135,7 +136,29 @@ app.post("/reset-password", (req, res) => {
       }
     }
   );
-})
+});
+
+// get all users from database
+app.get('/getAll', (req, res)=> {
+  // const database = DbService.getDbServiceInstance();
+
+  // const result = database.getAllData();
+
+  // result
+  //   .then(data => response.json(data))
+  //   .catch(err => console.log(err));
+  //   //console.log(data);
+
+  db.query(`SELECT * FROM users`, (err, results, fields) => {
+    if(err) {
+      res.send(err);
+    }
+    else{
+      res.send(results);
+      console.log(results);
+    }
+  })
+});
 
 app.listen(3005, () => {
   console.log("Server running at port 3005");

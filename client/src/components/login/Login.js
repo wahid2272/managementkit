@@ -37,7 +37,7 @@ const Login = () => {
       username: usernameLog,
       password: passwordLog,
     }).then((response) => {
-      console.log(response);
+      //console.log(response);
       if(response.status === 200) {
         history.push('/dashboard');
       }   
