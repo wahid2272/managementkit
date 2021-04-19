@@ -140,22 +140,14 @@ app.post("/reset-password", (req, res) => {
 
 // get all users from database
 app.get('/getAll', (req, res)=> {
-  // const database = DbService.getDbServiceInstance();
-
-  // const result = database.getAllData();
-
-  // result
-  //   .then(data => response.json(data))
-  //   .catch(err => console.log(err));
-  //   //console.log(data);
-
+  
   db.query(`SELECT * FROM users`, (err, results, fields) => {
     if(err) {
       res.send(err);
     }
     else{
       res.send(results);
-      console.log(results);
+      // console.log(results);
     }
   })
 });

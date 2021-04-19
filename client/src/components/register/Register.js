@@ -15,15 +15,16 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button: {
-    width: "10em",
+    width: "9em",
     padding: "22px",
-    margin: theme.spacing(2)
+    margin: theme.spacing(0.5)
   }
 }));
 
 const Register = () => {
   const classes = useStyles();
 
+  const [nameReg, setNameReg] = useState("");
   const [usernameReg, setUsernameReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
 
@@ -31,17 +32,29 @@ const Register = () => {
 
   const registerUser = () => {
     Axios.post("http://localhost:3005/register", {
+      name: nameReg,
       username: usernameReg,
       password: passwordReg,
     });
     history.push('/dashboard');
   };
 
+  const handleChange = () => {
+    history.push('/dashboard')
+  }
+
   return (
     <>
     <UserNav />
     <div className="registration">
       <h1>Registration</h1>
+
+      <form className={classes.root} noValidate autoComplete="off">
+        <TextField id="outlined-basic" label="Name" variant="outlined" 
+        onChange={(e) => {
+          setNameReg(e.target.value);
+        }}/>
+      </form>
 
       <form className={classes.root} noValidate autoComplete="off">
         <TextField id="outlined-basic" label="Set Username" variant="outlined" 
@@ -57,7 +70,10 @@ const Register = () => {
         }}/>
       </form>
 
-      <Button className={classes.button} variant="contained" color="primary" onClick={registerUser}>Register</Button>
+      <div>
+        <Button className={classes.button} variant="contained" color="primary" onClick={handleChange}>Back</Button>
+        <Button className={classes.button} variant="contained" color="primary" onSubmit={registerUser}>Register</Button>
+      </div>
     </div>
     </>
   );

@@ -15,9 +15,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button: {
-    width: "10em",
+    width: "9em",
     padding: "22px",
-    margin: theme.spacing(2)
+    margin: theme.spacing(0.5)
   }
 }));
 
@@ -38,6 +38,10 @@ const Reset = () => {
     });
     history.push('/dashboard');
   };
+
+  const handleChange = () => {
+    history.push('/dashboard')
+  }
 
   return (
     <>
@@ -94,7 +98,11 @@ const Reset = () => {
       /> */}
       {/* <button onClick={registerUser}>Reset</button> */}
 
-      <Button className={classes.button} variant="contained" color="primary" onClick={registerUser}>Reset</Button>
+      <div>
+        <Button className={classes.button} variant="contained" color="primary" onClick={handleChange}>Back</Button>
+        <Button className={classes.button} variant="contained" color="primary" onClick={registerUser}>Reset</Button>
+      </div>
+
     </div>
     </>
   );
