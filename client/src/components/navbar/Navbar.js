@@ -1,9 +1,11 @@
+import React from "react";
+
+//Material UI
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import React from "react";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -22,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function NavBar() {
+const NavBar = () => {
   const classes = useStyles();
 
   return (
@@ -42,3 +44,5 @@ export default function NavBar() {
     </div>
   );
 }
+
+export default NavBar; 

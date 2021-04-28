@@ -9,8 +9,6 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 
 const bcrypt = require("bcrypt");
-const DbService = require("./dbService");
-const { response } = require("express");
 const saltRounds = 10;
 
 const app = express();
