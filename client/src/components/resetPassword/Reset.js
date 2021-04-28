@@ -68,36 +68,6 @@ const Reset = () => {
         }}/>
     </form>
 
-      {/* <input
-        type="text"
-        placeholder="Username"
-        onChange={(e) => {
-          setUsername(e.target.value);
-        }}
-      /> */}
-      {/* <input
-        type="text"
-        placeholder="Old Password"
-        onChange={(e) => {
-          setOldPassword(e.target.value);
-        }}
-      /> */}
-      {/* <input
-        type="text"
-        placeholder="Set new password"
-        onChange={(e) => {
-          setNewPassword(e.target.value);
-        }}
-      /> */}
-      {/* <input
-        type="text"
-        placeholder="Confirm new password"
-        onChange={(e) => {
-          setConfirmNewPassword(e.target.value);
-        }}
-      /> */}
-      {/* <button onClick={registerUser}>Reset</button> */}
-
       <div>
         <Button className={classes.button} variant="contained" color="primary" onClick={handleChange}>Back</Button>
         <Button className={classes.button} variant="contained" color="primary" onClick={registerUser}>Reset</Button>
