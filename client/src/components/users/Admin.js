@@ -36,22 +36,27 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Admin = () => {
+  const classes = useStyles();
+  
   const [spacing] = React.useState(2);
   const history = useHistory();
-  const classes = useStyles();
   
   const ManageUser = () => {
   let path = `/userManage`;
   history.push(path);
-}
+  }
 
-const RegisterNewUser = () => {
-  history.push('/register')
-}
+  const ManageWebsite = () => {
+    history.push('/websiteManage')
+  }
 
-const ResetPassword = () => {
-  history.push('/reset')
-}
+  const RegisterNewUser = () => {
+    history.push('/register')
+  }
+
+  const ResetPassword = () => {
+    history.push('/reset')
+  }
 
   return (
     <div>
@@ -68,6 +73,15 @@ const ResetPassword = () => {
               </CardContent>
               <CardActions>
                 <Button color="primary" onClick={ManageUser}>Click to manage</Button>
+              </CardActions>
+            </Card>
+
+            <Card className={classes.card}>
+              <CardContent>
+                <h1>Website Management</h1>
+              </CardContent>
+              <CardActions>
+                <Button color="primary" onClick={ManageWebsite}>Click to manage</Button>
               </CardActions>
             </Card>
 

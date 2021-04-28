@@ -9,6 +9,7 @@ import Reset from "./components/resetPassword/Reset";
 import Register from "./components/register/Register";
 import Main from "./token/Main";
 import AdminUserManager from './components/users/userDashboard/AdminUserManager';
+import WebsiteManager from './components/users/websiteDashboard/WebsiteManager';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Route exact path="/register" component={Register} />
               <Route path="/dashboard" exact render={() => <Main/>} />
               <Route path="/userManage" exact render={() => <AdminUserManager/>} />
+              <Route path="/websiteManage" exact render={() => <WebsiteManager/>} />
               <Route exact path="/reset" render={() => <Reset/>} />
             </Switch>
           </div>

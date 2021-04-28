@@ -15,6 +15,13 @@ button {
   width: auto;
 }
 
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .registration {
   display: flex;
   align-items: center;
