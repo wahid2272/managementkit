@@ -72,7 +72,7 @@ const Register = () => {
 
       <div>
         <Button className={classes.button} variant="contained" color="primary" onClick={handleChange}>Back</Button>
-        <Button className={classes.button} variant="contained" color="primary" onSubmit={registerUser}>Register</Button>
+        <Button className={classes.button} variant="contained" color="primary" onClick={registerUser}>Register</Button>
       </div>
     </div>
     </>

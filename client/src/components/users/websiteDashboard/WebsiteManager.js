@@ -31,9 +31,9 @@ const WebsiteManager = () => {
         <>
             <UserNav />
             <div className="center">
-                Check!
+                <h1>Information regarding study opportunities will be added here.</h1>
 
-                <div>
+                <div className="center">
                     <Button className={classes.button} variant="contained" color="primary" onClick={handleChange}>Back</Button>
                 </div>
             </div>

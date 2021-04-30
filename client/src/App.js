@@ -1,15 +1,16 @@
-import CssBaseline from "@material-ui/core/CssBaseline";
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Footer from "./components/footer/Footer";
 import Home from "./components/home/Home";
-import Login from "./components/login/Login";
-import Reset from "./components/resetPassword/Reset";
-// import Navbar from "./components/navbar/Navbar";
-import Register from "./components/register/Register";
 import Main from "./token/Main";
-import AdminUserManager from './components/users/userDashboard/AdminUserManager';
+import AdminUserManager from './components/users/userDashboard/UserManager';
 import WebsiteManager from './components/users/websiteDashboard/WebsiteManager';
+import Login from "./components/login/Login";
+import Register from "./components/register/Register";
+import Reset from "./components/resetPassword/Reset";
+import Footer from "./components/footer/Footer";
+
+//Material ui
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
@@ -18,7 +19,6 @@ function App() {
         <>
           <CssBaseline />
           <div className="appBody">
-            {/* <Navbar /> */}
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
