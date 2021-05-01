@@ -35,6 +35,7 @@ const WebsiteManager = () => {
 
                 <div className="center">
                     <Button className={classes.button} variant="contained" color="primary" onClick={handleChange}>Back</Button>
+                    <Button className={classes.button} variant="contained" color="primary" onClick={handleChange}>Create new</Button>
                 </div>
             </div>
         </>

@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const query = require('./db/users');
+const infoQuery = require('./db/studyInfo');
 
 //Import BD configuration
 const db = require('./db/dbConfig');
@@ -50,7 +51,10 @@ app.post("/login", query.postLogin);
 app.post("/reset-password", query.passwordReset);
 
 // get all users from database
-app.get('/getAll', query.getAll);
+app.get('/getAllUser', query.getAllUser);
+
+// get all study info from database
+app.get('/getAllStudyInfo', infoQuery.getStudyInfo);
 
 app.listen(3005, () => {
   console.log("Server running at port 3005");

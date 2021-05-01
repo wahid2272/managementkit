@@ -1,7 +1,7 @@
 import React from "react";
 import Home from "./components/home/Home";
 import Main from "./token/Main";
-import AdminUserManager from './components/users/userDashboard/UserManager';
+import UserManager from './components/users/userDashboard/UserManager';
 import WebsiteManager from './components/users/websiteDashboard/WebsiteManager';
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
@@ -24,7 +24,7 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
               <Route path="/dashboard" exact render={() => <Main/>} />
-              <Route path="/userManage" exact render={() => <AdminUserManager/>} />
+              <Route path="/userManage" exact render={() => <UserManager/>} />
               <Route path="/websiteManage" exact render={() => <WebsiteManager/>} />
               <Route exact path="/reset" render={() => <Reset/>} />
             </Switch>

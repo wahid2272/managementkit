@@ -32,7 +32,7 @@ const AdminUserManager = () => {
 
     const [users, setUsers] =useState([]);
         useEffect(() => {
-            axios.get(`http://localhost:3005/getAll`)
+            axios.get(`http://localhost:3005/getAllUser`)
                 .then(response => setUsers(response.data))              
         }, []);
 

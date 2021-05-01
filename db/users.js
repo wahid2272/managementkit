@@ -106,7 +106,7 @@ const passwordReset = (req, res) => {
 };
 
 // Get all user data
-const getAll = (req, res) => {
+const getAllUser = (req, res) => {
   db.query(`SELECT * FROM users`, (err, results, fields) => {
     if(err) {
       res.send(err);
@@ -122,5 +122,5 @@ module.exports = {
   getLogin: getLogin,
   postLogin: postLogin,
   passwordReset: passwordReset,
-  getAll: getAll,
+  getAllUser: getAllUser,
 }
