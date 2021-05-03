@@ -31,11 +31,12 @@ const AdminUserManager = () => {
     const history = useHistory();
 
     const [users, setUsers] =useState([]);
-        useEffect(() => {
-            axios.get(`http://localhost:3005/getAllUser`)
-                .then(response => setUsers(response.data))              
-        }, []);
-
+    
+    useEffect(() => {
+        axios.get(`http://localhost:3005/api/getAllUser`)
+            .then(response => setUsers(response.data))              
+    }, []);
+    
     const handleChange = () => {
         history.push('/dashboard')
         }

@@ -31,7 +31,7 @@ const Register = () => {
   const history = useHistory();
 
   const registerUser = () => {
-    Axios.post("http://localhost:3005/register", {
+    Axios.post("http://localhost:3005/api/register", {
       name: nameReg,
       username: usernameReg,
       password: passwordReg,

@@ -31,7 +31,7 @@ const Reset = () => {
   const history = useHistory();
 
   const registerUser = () => {
-    Axios.post("http://localhost:3005/reset-password", {
+    Axios.post("http://localhost:3005/api/reset-password", {
       oldPassword: oldPassword,
       newPassword: newPassword,
       username: username

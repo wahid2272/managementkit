@@ -14,6 +14,7 @@ const session = require("express-session");
 // const saltRounds = 10;
 
 const app = express();
+const port = process.env.PORT || 3005;
 
 app.use(express.json());
 app.use(
@@ -39,7 +40,7 @@ app.use(
   );
 
 // Register new user
-app.post("/register", query.register);
+app.post("/api/register", query.register);
 
 // login successful 
 app.get("/login", query.getLogin);
@@ -48,14 +49,17 @@ app.get("/login", query.getLogin);
 app.post("/login", query.postLogin);
 
 // user password reset
-app.post("/reset-password", query.passwordReset);
+app.post("/api/reset-password", query.passwordReset);
 
 // get all users from database
-app.get('/getAllUser', query.getAllUser);
+app.get('/api/getAllUser', query.getAllUser);
 
 // get all study info from database
-app.get('/getAllStudyInfo', infoQuery.getStudyInfo);
+app.get('/api/getAllStudyInfo', infoQuery.getStudyInfo);
 
-app.listen(3005, () => {
-  console.log("Server running at port 3005");
+// add new study info into database
+app.post('/api/addNewInfo', infoQuery.addNewStudyInfo);
+
+app.listen(port, () => {
+  console.log(`Server running at port ${port}`);
 });
