@@ -23,6 +23,10 @@ button {
   padding-top: 30px;
 }
 
+.button-padding-top{
+  padding-top: 30px;
+}
+
 .registration {
   display: flex;
   align-items: center;

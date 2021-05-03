@@ -1,10 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import UserNav from "../UserNav";
 import { useHistory } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import "../../../App.css";
+// Material UI
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import moment from 'moment';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -14,10 +23,13 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     button: {
-      width: "9em",
+      width: "10em",
       padding: "22px",
       margin: theme.spacing(0.5)
-    }
+    },
+    table: {
+      minWidth: 750,
+    },
   }));
 
 const WebsiteManager = () => {
@@ -42,11 +54,40 @@ const WebsiteManager = () => {
                 <h1>Study Info</h1>
 
                 <div className={classes.control}>
-                    {studyInfo.map(info=> 
-                    <div key={info.id}>{info.program}&nbsp;${info.price}</div>)}
+                      
+                    <TableContainer component={Paper}>
+                      <Table className={classes.table} aria-label="caption table">
+                        <caption>Study related info</caption>
+                        <TableHead>
+                          <TableRow>
+                            <TableCell>Program Name</TableCell>
+                            <TableCell align="right">Start Date</TableCell>
+                            <TableCell align="right">End Date</TableCell>
+                            <TableCell align="right">Price</TableCell>
+                            <TableCell align="right">Edit</TableCell>
+                            <TableCell align="right">Delete</TableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                          {studyInfo.map((info) => (
+                            <TableRow key={info.id}>
+                              <TableCell component="th" scope="row">
+                                {info.program}
+                              </TableCell>
+                              <TableCell align="right">{moment.utc(info.start_date).format('DD/MM/YYYY')}</TableCell>
+                              <TableCell align="right">{moment.utc(info.end_date).format('DD/MM/YYYY')}</TableCell>
+                              <TableCell align="right">€ {info.price}</TableCell>
+                              <TableCell align="right">Edit</TableCell>
+                              <TableCell align="right">Delete</TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                
                 </div>
 
-                <div className="center">
+                <div className="button-padding-top">
                     <Button className={classes.button} variant="contained" color="primary" onClick={handleChange}>Back</Button>
                     <Button className={classes.button} variant="contained" color="primary" >Create new</Button>
                 </div>
