@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
-import Admin from '../components/users/Admin';
-import Student from '../components/users/Student';
+import Admin from '../components/users/adminUser/Admin';
+import Student from '../components/users/studentUser/Student';
 
 export default function Main() {
   const [role, setRole] = useState("");

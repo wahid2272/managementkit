@@ -1,5 +1,5 @@
 import React from 'react';
-import UserNav from './UserNav';
+import UserNav from '../UserNav';
 import { useHistory } from 'react-router-dom';
 // Material UI
 import { makeStyles } from '@material-ui/core/styles';

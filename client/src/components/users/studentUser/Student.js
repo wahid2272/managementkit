@@ -1,5 +1,5 @@
 import React from 'react';
-import UserNav from './UserNav';
+import UserNav from '../UserNav';
 import { useHistory } from 'react-router-dom';
 // Material UI
 import { makeStyles } from '@material-ui/core/styles';
@@ -38,6 +38,10 @@ const Student = () => {
     history.push('/reset')
   }
 
+  const StudyInfo= () => {
+    history.push('/studyInfo')
+  }
+
 
   return (
     <div>
@@ -53,6 +57,15 @@ const Student = () => {
               </CardContent>
               <CardActions>
                 <Button color="primary" onClick={ResetPassword}>Change your password</Button>
+              </CardActions>
+            </Card>
+
+            <Card className={classes.card}>
+              <CardContent>
+                <h1>Study Info</h1>
+              </CardContent>
+              <CardActions>
+                <Button color="primary" onClick={StudyInfo}>Check latest info</Button>
               </CardActions>
             </Card>
       

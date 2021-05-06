@@ -2,11 +2,13 @@ import React from "react";
 import Home from "./components/home/Home";
 import Main from "./token/Main";
 import UserManager from './components/users/userDashboard/UserManager';
-import WebsiteManager from './components/users/websiteDashboard/WebsiteManager';
+import WebsiteManager from './components/users/adminUser/adminWebsiteDashboard/WebsiteManager';
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Reset from "./components/resetPassword/Reset";
-import EditInfo from "./components/users/websiteDashboard/EditInfo";
+import EditInfo from "./components/users/adminUser/adminWebsiteDashboard/EditInfo";
+import CreateNewInfo from "./components/users/adminUser/adminWebsiteDashboard/CreateNewInfo";
+import StudyInfo from "./components/users/studentUser/StudyInfo";
 import Footer from "./components/footer/Footer";
 
 //Material ui
@@ -29,6 +31,8 @@ function App() {
               <Route path="/websiteManage" exact render={() => <WebsiteManager/>} />
               <Route exact path="/reset" render={() => <Reset/>} />
               <Route exact path="/editStudyInfo" render={() => <EditInfo/>} />
+              <Route exact path="/createNewInfo" render={() => <CreateNewInfo/>} />
+              <Route exact path="/studyInfo" render={() => <StudyInfo/>} />
             </Switch>
           </div>
         </>
