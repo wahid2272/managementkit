@@ -6,6 +6,7 @@ import WebsiteManager from './components/users/websiteDashboard/WebsiteManager';
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Reset from "./components/resetPassword/Reset";
+import EditInfo from "./components/users/websiteDashboard/EditInfo";
 import Footer from "./components/footer/Footer";
 
 //Material ui
@@ -27,6 +28,7 @@ function App() {
               <Route path="/userManage" exact render={() => <UserManager/>} />
               <Route path="/websiteManage" exact render={() => <WebsiteManager/>} />
               <Route exact path="/reset" render={() => <Reset/>} />
+              <Route exact path="/editStudyInfo" render={() => <EditInfo/>} />
             </Switch>
           </div>
         </>

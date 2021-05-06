@@ -30,6 +30,14 @@ const useStyles = makeStyles((theme) => ({
     table: {
       minWidth: 750,
     },
+    editButtonText: {
+      textTransform: 'none',
+      width: "4em"
+    },
+    deleteButtonText: {
+      textTransform: 'none',
+      width: "5em"
+    },
   }));
 
 const WebsiteManager = () => {
@@ -45,6 +53,10 @@ const WebsiteManager = () => {
 
     const handleChange = () => {
         history.push('/dashboard')
+    }
+
+    const handleEdit = () => {
+      history.push('/editStudyInfo');
     }
 
     return (
@@ -77,8 +89,8 @@ const WebsiteManager = () => {
                               <TableCell align="right">{moment.utc(info.start_date).format('DD/MM/YYYY')}</TableCell>
                               <TableCell align="right">{moment.utc(info.end_date).format('DD/MM/YYYY')}</TableCell>
                               <TableCell align="right">€ {info.price}</TableCell>
-                              <TableCell align="right">Edit</TableCell>
-                              <TableCell align="right">Delete</TableCell>
+                              <TableCell align="right"><Button variant="outlined" className={classes.editButtonText} onClick={handleEdit}>Edit</Button></TableCell>
+                              <TableCell align="right"><Button variant="outlined" className={classes.deleteButtonText}>Delete</Button></TableCell>
                             </TableRow>
                           ))}
                         </TableBody>
