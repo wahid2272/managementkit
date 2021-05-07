@@ -1,18 +1,19 @@
-import Button from "@material-ui/core/Button";
-import Paper from "@material-ui/core/Paper";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+import UserNav from "../UserNav";
+import "../../../App.css";
+
 //Material UI
 import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
-import "../../../App.css";
-import UserNav from "../UserNav";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,15 +65,15 @@ const AdminUserManager = () => {
     history.push("/dashboard");
   };
 
+  const editUserInfo = () => {
+    history.push("/editUserInfo");
+  };
+
   return (
     <div>
       <UserNav />
       <div className="center">
         <h1 className={classes.heading}>Manage Users</h1>
-        {/* <div className={classes.control}>
-                {users.map(user=> 
-                <div key={user.id}>{user.name}</div>)}
-            </div> */}
 
         <div className={classes.control}>
           <TableContainer component={Paper}>
@@ -99,6 +100,7 @@ const AdminUserManager = () => {
                       <Button
                         variant="outlined"
                         className={classes.deleteButtonText}
+                        onClick={editUserInfo}
                       >
                         Edit
                       </Button>

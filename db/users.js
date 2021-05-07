@@ -117,6 +117,12 @@ const getAllUser = (req, res) => {
   });
 };
 
+const updateUser = (req, res) => {
+  const name = req.body.name;
+  const username = req.body.username;
+  const role = req.body.role;
+}
+
 module.exports = {
   register: register,
   getLogin: getLogin,

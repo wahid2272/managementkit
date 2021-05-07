@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./components/home/Home";
 import Main from "./token/Main";
 import UserManager from './components/users/userDashboard/UserManager';
+import EditUserInfo from './components/users/userDashboard/EditUserInfo';
 import WebsiteManager from './components/users/adminUser/adminWebsiteDashboard/WebsiteManager';
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
@@ -33,6 +34,7 @@ function App() {
               <Route exact path="/editStudyInfo" render={() => <EditInfo/>} />
               <Route exact path="/createNewInfo" render={() => <CreateNewInfo/>} />
               <Route exact path="/studyInfo" render={() => <StudyInfo/>} />
+              <Route exact path="/editUserInfo" render={() => <EditUserInfo/>} />
             </Switch>
           </div>
         </>
