@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import UserNav from "../users/UserNav";
 import { useHistory } from "react-router-dom";
-import Axios from "axios";
+import axios from "axios";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -31,7 +31,7 @@ const Register = () => {
   const history = useHistory();
 
   const registerUser = () => {
-    Axios.post("http://localhost:3005/api/register", {
+    axios.post("http://localhost:3005/api/register", {
       name: nameReg,
       username: usernameReg,
       password: passwordReg,

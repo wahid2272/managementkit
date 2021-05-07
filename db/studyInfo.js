@@ -1,4 +1,3 @@
-const { end } = require('./dbConfig');
 const db = require('./dbConfig');
 
 // Get all study data
@@ -19,10 +18,13 @@ const addNewStudyInfo = (req, res) => {
   const endDate = req.body.end_date;
   const price = req.body.price;
 
-  db.query("INSERT INTO study_info (program, start_date, end_date, price) VALUES (?, ?, ?, ?)" [program, startDate, endDate, price], (err, result) => {
+  console.log(startDate);
+
+  db.query("INSERT INTO study_info (program, start_date, end_date, price) VALUES (?, ?, ?, ?)", [program, startDate, endDate, price], (err, result) => {
+    // console.log(err);
     return console.error(`Error in query execution`);
-  })
-}
+  });
+};
 
 module.exports = {
   getStudyInfo: getStudyInfo,

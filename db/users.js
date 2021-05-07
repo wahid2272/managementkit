@@ -114,8 +114,8 @@ const getAllUser = (req, res) => {
     else{
       res.send(results);
     }
-  })
-}
+  });
+};
 
 module.exports = {
   register: register,

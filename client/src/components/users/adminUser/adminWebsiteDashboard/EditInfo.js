@@ -36,7 +36,7 @@ const EditInfo = () => {
     <div>
       <UserNav />
       <div className="center">
-        Hello
+        Edit options will be added here!
 
         <div className="button-padding-top">
             <Button className={classes.button} variant="contained" color="primary" onClick={handleChange}>Back</Button>
