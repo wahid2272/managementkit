@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(0.5)
     },
     table: {
-      minWidth: 750,
+      minWidth: 850,
     },
     editButtonText: {
       textTransform: 'none',
