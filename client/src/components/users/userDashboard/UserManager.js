@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AdminUserManager = () => {
+const AdminUserManager = (props) => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -65,8 +65,15 @@ const AdminUserManager = () => {
     history.push("/dashboard");
   };
 
-  const editUserInfo = () => {
-    history.push("/editUserInfo");
+  const editUserInfo = (e) => {
+    let arrayIndex = e.currentTarget.getAttribute('data-id');
+    //console.log(e.currentTarget.getAttribute('data-id'));
+    let user = users[arrayIndex];
+    //console.log(user);
+    history.push({
+      pathname: "/editUserInfo",
+      state: {user: user}
+    }); 
   };
 
   return (
@@ -89,7 +96,7 @@ const AdminUserManager = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {users.map((user) => (
+                {users.map((user, index) => (
                   <TableRow key={user.id}>
                     <TableCell component="th" scope="row">
                       {user.name}
@@ -98,6 +105,7 @@ const AdminUserManager = () => {
                     <TableCell align="right">{user.role}</TableCell>
                     <TableCell align="right">
                       <Button
+                        data-id={index}
                         variant="outlined"
                         className={classes.deleteButtonText}
                         onClick={editUserInfo}

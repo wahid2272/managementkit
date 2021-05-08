@@ -49,7 +49,7 @@ const WebsiteManager = () => {
     useEffect(()=> {
       axios.get(`http://localhost:3005/api/getAllStudyInfo`)
           .then(response => setStudyInfo(response.data));
-    })
+    }, []);
 
     const handleChange = () => {
         history.push('/dashboard')

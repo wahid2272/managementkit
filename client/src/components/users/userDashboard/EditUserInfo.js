@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import UserNav from "../UserNav";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 import "../../../App.css";
 
 //Material UI
@@ -36,13 +37,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const EditUserInfo = () => {
+const EditUserInfo = (props) => {
   const classes = useStyles();
   const history = useHistory();
+  const location = useLocation();
 
-  const [username, setUsername] = useState("");
-  const [name, setName] = useState("");
-  const [role, setRole] = useState("");
+  let user = location.state.user;
+  console.log(location.state.user);
+
+  const [username, setUsername] = useState(user.username);
+  const [name, setName] = useState(user.name);
+  const [role, setRole] = useState(user.role);
 
   const editInfo = () => {
     axios.post("http://localhost:3005/api/addNewInfo", {
@@ -66,21 +71,24 @@ const EditUserInfo = () => {
           <TextField id="outlined-basic" label="Username" variant="outlined" className={classes.textField} 
           onChange={(e) => {
             setUsername(e.target.value);
-          }}/>
+          }}
+          value={username}/>
         </form>
 
         <form className={classes.root} noValidate autoComplete="off">
           <TextField id="outlined-basic" label="Name" variant="outlined" className={classes.textField}
           onChange={(e) => {
             setName(e.target.value);
-          }}/>
+          }}
+          value={name}/>
         </form>
 
         <form className={classes.root} noValidate autoComplete="off">
           <TextField id="outlined-basic" label="Role" variant="outlined" className={classes.textField}
           onChange={(e) => {
             setRole(e.target.value);
-          }}/>
+          }}
+          value={role}/>
         </form>
 
         <div className="button-padding-top">

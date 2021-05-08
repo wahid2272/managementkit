@@ -39,6 +39,8 @@ app.use(
   })
   );
 
+
+
 // Register new user
 app.post("/api/register", query.register);
 
