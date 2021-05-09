@@ -39,8 +39,6 @@ app.use(
   })
   );
 
-
-
 // Register new user
 app.post("/api/register", query.register);
 
@@ -55,6 +53,9 @@ app.post("/api/reset-password", query.passwordReset);
 
 // get all users from database
 app.get('/api/getAllUser', query.getAllUser);
+
+// Update a user info
+app.put('/api/updateUser', query.updateUser);
 
 // get all study info from database
 app.get('/api/getAllStudyInfo', infoQuery.getStudyInfo);

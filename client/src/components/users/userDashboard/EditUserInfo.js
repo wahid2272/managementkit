@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import UserNav from "../UserNav";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation  } from "react-router-dom";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
 import "../../../App.css";
 
 //Material UI
@@ -45,17 +44,23 @@ const EditUserInfo = (props) => {
   let user = location.state.user;
   console.log(location.state.user);
 
+  const [id, setId] = useState(user.id);
   const [username, setUsername] = useState(user.username);
   const [name, setName] = useState(user.name);
   const [role, setRole] = useState(user.role);
 
   const editInfo = () => {
-    axios.post("http://localhost:3005/api/addNewInfo", {
+    axios.put("http://localhost:3005/api/updateUser", {
       username: username,
       name: name,
       role: role,
-    });
-    history.push('/userManage');
+      id:id
+    })
+    .then((response) => {
+      if(response){
+        history.push('/userManage');
+      }
+    })
   }
 
   const handleChange = () => {
@@ -66,6 +71,14 @@ const EditUserInfo = (props) => {
       <UserNav />
       <div className="center">
         <h1>Edit User Info</h1>
+
+        <form className={classes.root} noValidate autoComplete="off">
+          <TextField disabled id="outlined-basic" label="Username" variant="outlined" className={classes.textField} 
+          onChange={(e) => {
+            setId(e.target.value);
+          }}
+          value={id}/>
+        </form>
 
         <form className={classes.root} noValidate autoComplete="off">
           <TextField id="outlined-basic" label="Username" variant="outlined" className={classes.textField} 

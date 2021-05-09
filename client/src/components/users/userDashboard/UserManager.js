@@ -88,6 +88,7 @@ const AdminUserManager = (props) => {
               <caption>User Info </caption>
               <TableHead>
                 <TableRow>
+                  <TableCell align="right">ID</TableCell>
                   <TableCell>Student Name</TableCell>
                   <TableCell align="right">Username</TableCell>
                   <TableCell align="right">User role</TableCell>
@@ -98,6 +99,7 @@ const AdminUserManager = (props) => {
               <TableBody>
                 {users.map((user, index) => (
                   <TableRow key={user.id}>
+                    <TableCell align="right"> {user.id}</TableCell>
                     <TableCell component="th" scope="row">
                       {user.name}
                     </TableCell>

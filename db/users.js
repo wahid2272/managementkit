@@ -118,9 +118,17 @@ const getAllUser = (req, res) => {
 };
 
 const updateUser = (req, res) => {
+  const id = req.body.id;
   const name = req.body.name;
   const username = req.body.username;
   const role = req.body.role;
+
+  db.query(`UPDATE users SET id = ?, name = ?, username = ?, role = ? WHERE id = ${id}`, [id, name, username, role], (err) => {
+    console.log(err);
+    if(err) return console.error('Error in query execution');
+  });
+
+  res.status(200).send('User info updated');
 }
 
 module.exports = {
@@ -129,4 +137,5 @@ module.exports = {
   postLogin: postLogin,
   passwordReset: passwordReset,
   getAllUser: getAllUser,
+  updateUser: updateUser,
 }

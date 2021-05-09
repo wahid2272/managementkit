@@ -7,7 +7,7 @@ import WebsiteManager from './components/users/adminUser/adminWebsiteDashboard/W
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Reset from "./components/resetPassword/Reset";
-import EditInfo from "./components/users/adminUser/adminWebsiteDashboard/EditInfo";
+import EditInfo from "./components/users/adminUser/adminWebsiteDashboard/EditStudyInfo";
 import CreateNewInfo from "./components/users/adminUser/adminWebsiteDashboard/CreateNewInfo";
 import StudyInfo from "./components/users/studentUser/StudyInfo";
 import Footer from "./components/footer/Footer";

@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const EditInfo = () => {
+const EditStudyInfo = () => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -119,4 +119,4 @@ const EditInfo = () => {
   );
 };
 
-export default EditInfo;
+export default EditStudyInfo;

@@ -44,7 +44,7 @@ const CreateNewInfo = () => {
   const [price, setPrice] = useState("");
 
   const createInfo = () => {
-    console.log(program, startDate, endDate, price);
+    //console.log(program, startDate, endDate, price);
     axios.post("http://localhost:3005/api/addNewInfo", {
       program: program,
       startDate: startDate,
