@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AdminUserManager = (props) => {
+const AdminUserManager = () => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -67,9 +67,7 @@ const AdminUserManager = (props) => {
 
   const editUserInfo = (e) => {
     let arrayIndex = e.currentTarget.getAttribute('data-id');
-    //console.log(e.currentTarget.getAttribute('data-id'));
     let user = users[arrayIndex];
-    //console.log(user);
     history.push({
       pathname: "/editUserInfo",
       state: {user: user}

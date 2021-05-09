@@ -63,6 +63,9 @@ app.get('/api/getAllStudyInfo', infoQuery.getStudyInfo);
 // add new study info into database
 app.post('/api/addNewInfo', infoQuery.addNewStudyInfo);
 
+// Update a study info
+app.put('/api/updateStudyInfo', infoQuery.updateStudyInfo);
+
 app.listen(port, () => {
   console.log(`Server running at port ${port}`);
 });

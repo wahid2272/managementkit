@@ -124,7 +124,6 @@ const updateUser = (req, res) => {
   const role = req.body.role;
 
   db.query(`UPDATE users SET id = ?, name = ?, username = ?, role = ? WHERE id = ${id}`, [id, name, username, role], (err) => {
-    console.log(err);
     if(err) return console.error('Error in query execution');
   });
 

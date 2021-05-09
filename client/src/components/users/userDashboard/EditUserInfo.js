@@ -42,7 +42,7 @@ const EditUserInfo = (props) => {
   const location = useLocation();
 
   let user = location.state.user;
-  console.log(location.state.user);
+  //console.log(location.state.user);
 
   const [id, setId] = useState(user.id);
   const [username, setUsername] = useState(user.username);
@@ -51,10 +51,10 @@ const EditUserInfo = (props) => {
 
   const editInfo = () => {
     axios.put("http://localhost:3005/api/updateUser", {
+      id:id,
       username: username,
       name: name,
-      role: role,
-      id:id
+      role: role
     })
     .then((response) => {
       if(response){
@@ -74,10 +74,11 @@ const EditUserInfo = (props) => {
 
         <form className={classes.root} noValidate autoComplete="off">
           <TextField disabled id="outlined-basic" label="Username" variant="outlined" className={classes.textField} 
+          value={id}
           onChange={(e) => {
             setId(e.target.value);
           }}
-          value={id}/>
+          />
         </form>
 
         <form className={classes.root} noValidate autoComplete="off">
