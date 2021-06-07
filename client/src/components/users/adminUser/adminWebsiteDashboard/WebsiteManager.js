@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
   deleteButtonText: {
     textTransform: "none",
-    width: "5em",
+    width: "6.9em",
   },
 }));
 
@@ -65,6 +65,10 @@ const WebsiteManager = () => {
     });
   };
 
+  const handleMoreInfo = () => {
+    history.push("/websiteManage/moreInfo")
+  }
+
   const createNew = () => {
     history.push("/createNewInfo");
   };
@@ -86,7 +90,7 @@ const WebsiteManager = () => {
                   <TableCell align="right">End Date</TableCell>
                   <TableCell align="right">Price</TableCell>
                   <TableCell align="right">Edit</TableCell>
-                  <TableCell align="right">Delete</TableCell>
+                  <TableCell align="right">Info</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -103,22 +107,18 @@ const WebsiteManager = () => {
                     </TableCell>
                     <TableCell align="right">€ {info.price}</TableCell>
                     <TableCell align="right">
-                      <Button
+                      <button
                         info-id={index}
-                        variant="outlined"
-                        className={classes.editButtonText}
+                        
                         onClick={handleEdit}
                       >
                         Edit
-                      </Button>
+                      </button>
                     </TableCell>
                     <TableCell align="right">
-                      <Button
-                        variant="outlined"
-                        className={classes.deleteButtonText}
-                      >
-                        Delete
-                      </Button>
+                      <button onClick={handleMoreInfo}>
+                        More info
+                      </button>
                     </TableCell>
                   </TableRow>
                 ))}

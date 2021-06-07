@@ -8,6 +8,7 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Reset from "./components/resetPassword/Reset";
 import EditInfo from "./components/users/adminUser/adminWebsiteDashboard/EditStudyInfo";
+import MoreInfo from "./components/users/adminUser/adminWebsiteDashboard/MoreInfo"
 import CreateNewInfo from "./components/users/adminUser/adminWebsiteDashboard/CreateNewInfo";
 import StudyInfo from "./components/users/studentUser/StudyInfo";
 import Footer from "./components/footer/Footer";
@@ -32,6 +33,7 @@ function App() {
               <Route path="/websiteManage" exact render={() => <WebsiteManager/>} />
               <Route exact path="/reset" render={() => <Reset/>} />
               <Route exact path="/editStudyInfo" render={() => <EditInfo/>} />
+              <Route exact path="/websiteManage/moreInfo" render={() => <MoreInfo/>} />
               <Route exact path="/createNewInfo" render={() => <CreateNewInfo/>} />
               <Route exact path="/studyInfo" render={() => <StudyInfo/>} />
               <Route exact path="/editUserInfo" render={() => <EditUserInfo/>} />

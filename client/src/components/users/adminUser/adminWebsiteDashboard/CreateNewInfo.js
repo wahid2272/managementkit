@@ -6,6 +6,8 @@ import "../../../../App";
 // Material UI
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
@@ -16,10 +18,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button: {
-    width: "10em",
+    width: "13.5em",
     padding: "22px",
     margin: theme.spacing(0.5)
   },
+  // button: {
+  //   padding: "20px"
+  // },
   table: {
     minWidth: 750,
   },
@@ -28,9 +33,9 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
   textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: 300,
+    // marginLeft: theme.spacing(1),
+    // marginRight: theme.spacing(1),
+    // width: 300,
   },
 }));
 
@@ -70,57 +75,96 @@ const CreateNewInfo = () => {
       <div className="center">
          <h1>Create New Study Info</h1>
         
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField id="outlined-basic" label="Program Name" variant="outlined" className={classes.textField} 
-          onChange={(e) => {
-            setProgram(e.target.value);
-          }}/>
-        </form>
+        
 
-        <form className={classes.root} noValidate>
-          <TextField
-            id="date"
-            label="Start Date"
-            type="date"
-            // defaultValue="2021-01-01"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            className={classes.textField}
-            onChange={(e) => {
-              setStatrtDate(e.target.value);
-            }}
-          />
-          </form>
+        
 
-          <form className={classes.root} noValidate>
-          <TextField
-            id="date"
-            label="End Date"
-            type="date"
-            // defaultValue="2021-01-01"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            className={classes.textField}
-            onChange={(e) => {
-              setEndDate(e.target.value);
-            }}
-          />
-        </form>
+        {/* <div className="button-padding-top">
+            <Button className={classes.button} variant="contained" color="primary" onClick={handleChange}>Back</Button>
+            <Button className={classes.button} variant="contained" color="primary" onClick={createInfo}>Submit</Button>
+        </div> */}
+      </div>
 
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField id="outlined-basic" label="Price" variant="outlined" className={classes.textField}
-          onChange={(e) => {
-            setPrice(e.target.value);
-          }}/>
-        </form>
+      <Container className={classes.container} maxWidth="xs">
+      <form>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField 
+                  fullWidth 
+                  label="Program Name"  
+                  size="small" 
+                  variant="outlined" 
+                  onChange={(e) => {
+                    setProgram(e.target.value);
+                  }}
+                  />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  id="date"
+                  label="Start Date"
+                  type="date"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  className={classes.textField}
+                  onChange={(e) => {
+                    setStatrtDate(e.target.value);
+                  }}
+                />
+              </Grid>
 
-        <div className="button-padding-top">
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  id="date"
+                  label="Start Date"
+                  type="date"
+                  // defaultValue="2021-01-01"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  className={classes.textField}
+                  onChange={(e) => {
+                    setEndDate(e.target.value);
+                  }}
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  label="Price"
+                  size="small" 
+                  variant="outlined"
+                  onChange={(e) => {
+                    setPrice(e.target.value);
+                  }}
+                />
+              </Grid>
+
+
+            </Grid>
+          </Grid>
+          {/* <Grid item xs={5}>
+            <Button className={classes.button} color="primary" fullWidth type="submit" variant="contained" >
+              Back
+            </Button>
+            <Button className={classes.button} color="primary" fullWidth type="submit" variant="contained" >
+              Submit
+            </Button>
+          </Grid> */}
+        </Grid>
+      </form>
+          <div className="button-padding-top">
             <Button className={classes.button} variant="contained" color="primary" onClick={handleChange}>Back</Button>
             <Button className={classes.button} variant="contained" color="primary" onClick={createInfo}>Submit</Button>
         </div>
-      </div>
+    </Container>
+
     </div>
   );
 };

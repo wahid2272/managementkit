@@ -42,7 +42,7 @@ const Login = () => {
     }).catch(err => {
       setMessage("Wrong username/password combination!")
     })
-  }; 
+  };  
 
   return (
     <>
